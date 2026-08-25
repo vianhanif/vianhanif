@@ -8,6 +8,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 **Open PRs:** 9
 
 **Merged PRs:** 0
+
 _2 external repositories._
 <!-- OSS-MAP:END -->
 

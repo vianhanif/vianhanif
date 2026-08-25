@@ -21,7 +21,7 @@ repo_count=$(jq -s --arg cut "$CUTOFF_DATE" '
   | unique | length
 ' <(echo "$open_json") <(echo "$merged_json"))
 
-body="**Open PRs:** ${open_count}\n\n**Merged PRs:** ${merged_count}\n_${repo_count} external repositories._"
+body="**Open PRs:** ${open_count}\n\n**Merged PRs:** ${merged_count}\n\n_${repo_count} external repositories._"
 
 # Splice into README
 grep -qF "$START_MARKER" "$README_FILE" || { echo "Error: Start marker not found" >&2; exit 1; }
