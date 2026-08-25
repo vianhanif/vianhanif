@@ -12,42 +12,16 @@ END_MARKER='<!-- OSS-MAP:END -->'
 open_json=$(gh search prs --author "$AUTHOR" --limit 200 --state open --json number,title,url,repository,state,createdAt,closedAt)
 merged_json=$(gh search prs --author "$AUTHOR" --limit 200 --state closed --merged --json number,title,url,repository,state,createdAt,closedAt)
 
-# Helper function to generate sections
-render_section() {
-    local json="$1" state="$2" label="$3" date_verb="$4"
-    
-    local count
-    count=$(echo "$json" | jq -r --arg cut "$CUTOFF_DATE" --arg state "$state" '
-        [ .[] | select(.repository.nameWithOwner | split("/")[0] != "vianhanif") | select($state != "merged" or (.closedAt != null and .closedAt >= $cut)) ] | length
-    ')
+# Count external PRs (owner != AUTHOR); merged additionally respects cutoff year
+open_count=$(echo "$open_json" | jq '[ .[] | select(.repository.nameWithOwner | split("/")[0] != "vianhanif") ] | length')
+merged_count=$(echo "$merged_json" | jq --arg cut "$CUTOFF_DATE" '[ .[] | select((.repository.nameWithOwner | split("/")[0]) != "vianhanif") | select(.closedAt != null and .closedAt >= $cut) ] | length')
+repo_count=$(jq -s --arg cut "$CUTOFF_DATE" '
+  [ .[0][] | select((.repository.nameWithOwner | split("/")[0]) != "vianhanif") | .repository.nameWithOwner ] +
+  [ .[1][] | select((.repository.nameWithOwner | split("/")[0]) != "vianhanif") | select(.closedAt != null and .closedAt >= $cut) | .repository.nameWithOwner ]
+  | unique | length
+' <(echo "$open_json") <(echo "$merged_json"))
 
-    if [ "$count" -eq 0 ]; then
-        echo "_No $label external pull requests right now._"
-        return
-    fi
-
-    local repo_count
-    repo_count=$(echo "$json" | jq -r --arg cut "$CUTOFF_DATE" --arg state "$state" '
-        [ .[] | select(.repository.nameWithOwner | split("/")[0] != "vianhanif") | select($state != "merged" or (.closedAt != null and .closedAt >= $cut)) ] 
-        | map(.repository.nameWithOwner) | unique | length
-    ')
-
-    echo "_**${count}** external ${label} pull request(s) across ${repo_count} repositories._"
-    echo ""
-
-    echo "$json" | jq -r --arg cut "$CUTOFF_DATE" --arg state "$state" --arg verb "$date_verb" '
-        [ .[] | select(.repository.nameWithOwner | split("/")[0] != "vianhanif") | select($state != "merged" or (.closedAt != null and .closedAt >= $cut)) ]
-        | sort_by(.repository.nameWithOwner, .createdAt)
-        | group_by(.repository.nameWithOwner)
-        | .[]
-        | "### " + .[0].repository.nameWithOwner + " (" + (length|tostring) + " " + $state + ")\n" +
-          (map("- [" + .repository.nameWithOwner + "] " + .title + " (#" + (.number|tostring) + ") — " + .url + " (" + $verb + " " + (if $state=="open" then .createdAt[:10] else .closedAt[:10] end) + ")") | join("\n"))
-    '
-}
-
-# Generate bodies
-body_open=$(render_section "$open_json" "open" "open" "opened")
-body_merged=$(render_section "$merged_json" "merged" "merged" "merged")
+body="**Open PRs:** ${open_count}\n**Merged PRs:** ${merged_count}\n_${repo_count} external repositories._"
 
 # Splice into README
 grep -qF "$START_MARKER" "$README_FILE" || { echo "Error: Start marker not found" >&2; exit 1; }
@@ -55,9 +29,7 @@ grep -qF "$END_MARKER" "$README_FILE" || { echo "Error: End marker not found" >&
 
 body_file=$(mktemp)
 {
-    echo "$body_open"
-    echo ""
-    echo "$body_merged"
+    printf '%b\n' "$body"
 } > "$body_file"
 
 tmp_readme=$(mktemp)
