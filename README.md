@@ -5,7 +5,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 ## 🗺️ Open Source Contribution Map
 
 <!-- OSS-MAP:START -->
-**Open PRs:** 9
+**Open PRs:** 8
 
 **Merged PRs:** 0
 
