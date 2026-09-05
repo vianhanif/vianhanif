@@ -21,7 +21,8 @@ repo_count=$(jq -s --arg cut "$CUTOFF_DATE" '
   | unique | length
 ' <(echo "$open_json") <(echo "$merged_json"))
 
-body="**Open PRs:** ${open_count}\n\n**Merged PRs:** ${merged_count}\n\n_${repo_count} external repositories._"
+updated=$(date -u +%Y-%m-%d)
+body="**Open PRs:** ${open_count}\n\n**Merged PRs:** ${merged_count}\n\n_${repo_count} external repositories · updated ${updated}_"
 
 # Splice into README
 grep -qF "$START_MARKER" "$README_FILE" || { echo "Error: Start marker not found" >&2; exit 1; }
@@ -39,7 +40,7 @@ awk -v s="$START_MARKER" -v e="$END_MARKER" -v body="$body_file" '
   $0==e && ins {ins=0; print; next}
   ins {next}
   {print}
-' "$README_FILE" > "$tmp_readme"
+' "$README_FILE" > "$tmp_readme" || { echo "Error: README splice failed" >&2; rm -f "$tmp_readme" "$body_file"; exit 1; }
 
 mv "$tmp_readme" "$README_FILE"
 rm "$body_file"
