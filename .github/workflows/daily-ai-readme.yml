@@ -20,7 +20,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           AUTHOR: vianhanif
           LLM_URL: https://9router.vianhanif/link/v1
-          LLM_MODEL: gpt-4o-mini
+          LLM_MODEL: General
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: bash ./scripts/generate-ai-readme.sh
 
