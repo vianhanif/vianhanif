@@ -27,15 +27,17 @@ auth=()
 resp=$(curl -sS -w '\n%{http_code}' "${LLM_URL}/chat/completions" "${auth[@]}" \
   -H "Content-Type: application/json" \
   -d "$(jq -n --arg m "$LLM_MODEL" --arg sys "$prompt" --arg user "$context" \
-    '{model: $m, messages: [{role: "system", content: $sys}, {role: "user", content: $user}], temperature: 0.4}')")
+    '{model: $m, messages: [{role: "system", content: $sys}, {role: "user", content: $user}], temperature: 0.4, stream: false}')")
 code=$(tail -n1 <<<"$resp")
 body=$(sed '$d' <<<"$resp")
-content=$(jq -r '.choices[0].message.content' <<<"$body" 2>/dev/null) || {
-  echo "LLM API error (HTTP $code):" >&2
-  echo "$body" | head -c 500 >&2
-  echo >&2
-  exit 1
-}
+
+# Handle both streaming (SSE) and non-streaming chat completion responses
+if grep -q '^data: {' <<<"$body"; then
+  content=$(grep '^data: {' <<<"$body" | sed 's/^data: //' | jq -r '[.[]? | .choices[0].delta.content // empty] | join("")')
+else
+  content=$(jq -r '.choices[0].message.content // empty' <<<"$body")
+fi
+[[ -z "$content" ]] && { echo "LLM returned empty/error (HTTP $code):" >&2; echo "$body" | head -c 500 >&2; echo >&2; exit 1; }
 
 grep -qF "$START_MARKER" "$README_FILE" || { echo "Error: Start marker not found" >&2; exit 1; }
 grep -qF "$END_MARKER" "$README_FILE" || { echo "Error: End marker not found" >&2; exit 1; }
