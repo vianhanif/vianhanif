@@ -5,11 +5,17 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 ## 🗺️ Open Source Contribution Map
 
 <!-- OSS-MAP:START -->
-**Open PRs:** 9
+**Open PRs:** 10
 
 **Merged PRs:** 0
 
-_2 external repositories._
+_1 external repositories · updated 2026-09-05_
 <!-- OSS-MAP:END -->
 
 _This section auto-updates weekly via GitHub Actions._
+
+## ✨ Highlights
+
+- [**core**](https://gitlab.com/example/core) — Main backend services
+- [**9router**](https://github.com/vianhanif/9router) — Personal MCP gateway router
+- [**writings**](https://github.com/vianhanif/writings) — Technical blog posts

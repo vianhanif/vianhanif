@@ -19,7 +19,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           CUTOFF_YEAR: '2020'
-        run: ./scripts/generate-contribution-map.sh
+        run: bash ./scripts/generate-contribution-map.sh
 
       - name: Commit and push if changed
         run: |
@@ -28,5 +28,5 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add README.md
             git commit -m "docs: update contribution map [skip ci]"
-            git push
+            git push origin HEAD:main
           fi
