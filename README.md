@@ -14,8 +14,10 @@ _1 external repositories · updated 2026-09-05_
 
 _This section auto-updates weekly via GitHub Actions._
 
+<!-- AI-UPDATE:START -->
+<!-- AI-UPDATE:END -->
+
 ## ✨ Highlights
 
-- [**core**](https://gitlab.com/example/core) — Main backend services
 - [**9router**](https://github.com/vianhanif/9router) — Personal MCP gateway router
 - [**writings**](https://github.com/vianhanif/writings) — Technical blog posts
