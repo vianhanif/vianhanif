@@ -24,7 +24,7 @@ prompt='You are a GitHub profile summarizer. Write 3-6 markdown bullets summariz
 # Call LLM (OpenAI-compatible chat completions)
 auth=()
 [[ -n "${LLM_API_KEY:-}" ]] && auth=(-H "Authorization: Bearer ${LLM_API_KEY}")
-content=$(curl -fsS "${auth[@]}" \
+content=$(curl -fsS "${LLM_URL}/chat/completions" "${auth[@]}" \
   -H "Content-Type: application/json" \
   -d "$(jq -n --arg m "$LLM_MODEL" --arg sys "$prompt" --arg user "$context" \
     '{model: $m, messages: [{role: "system", content: $sys}, {role: "user", content: $user}], temperature: 0.4}')" \
