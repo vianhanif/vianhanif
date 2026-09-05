@@ -16,8 +16,8 @@ fi
 events=$(gh api "users/${AUTHOR}/events?per_page=30" \
   | jq '[ .[] | {type, created_at, repo: .repo.name, payload: {action: .payload.action, ref: .payload.ref, ref_type: .payload.ref_type, commits: [.payload.commits[]? | {message, sha}] | .[0:5]}} ]')
 
-context=$(jq -n --argjson e "$events" --arg a "$AUTHOR" '
-  "Recent GitHub activity for \($a):\n" + ($e | tostring)')
+context=$(jq -Rs --arg a "$AUTHOR" '
+  "Recent GitHub activity for \($a):\n" + . ' <<< "$events")
 
 prompt='You are a GitHub profile summarizer. Write 3-6 markdown bullets summarizing the user'\''s most recent open source work from the activity JSON. Lead with what they are working on, note PRs/repos touched, keep it factual, no greetings. Output ONLY the bullets, one per line, starting with "-".'
 
