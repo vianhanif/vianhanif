@@ -2,17 +2,9 @@ Hi There...!
 
 Welcome to my GitHub profile — below is a living map of my open source contributions across other repositories.
 
-## 🗺️ Open Source Contribution Map
-
 <!-- OSS-MAP:START -->
-**Open PRs:** 10
-
-**Merged PRs:** 0
-
-_1 external repositories · updated 2026-09-05_
+<sub>🗺️ Active in 3 external repo(s): [9router](https://github.com/bloodf/9router), [9router](https://github.com/decolua/9router), [warp](https://github.com/warpdotdev/warp)</sub>
 <!-- OSS-MAP:END -->
-
-_This section auto-updates weekly via GitHub Actions._
 
 <!-- AI-UPDATE:START -->
 <sub>🤖 AI digest: Recent work on 9router — MCP gateway headers fix PRs, upstream v0.5.65 sync, ongoing review on decolua/9router.</sub>

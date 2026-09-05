@@ -18,7 +18,6 @@ jobs:
       - name: Generate contribution map
         env:
           GH_TOKEN: ${{ github.token }}
-          CUTOFF_YEAR: '2020'
         run: bash ./scripts/generate-contribution-map.sh
 
       - name: Commit and push if changed

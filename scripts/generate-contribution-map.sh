@@ -1,37 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-AUTHOR="vianhanif"
-CUTOFF_YEAR="${CUTOFF_YEAR:-2020}"
-CUTOFF_DATE="${CUTOFF_YEAR}-01-01"
+# ponytail: events-based counting; upgrade to commit-level API if more precision needed
+
+AUTHOR="${AUTHOR:-vianhanif}"
 README_FILE="README.md"
 START_MARKER='<!-- OSS-MAP:START -->'
 END_MARKER='<!-- OSS-MAP:END -->'
 
-# Fetch data
-open_json=$(gh search prs --author "$AUTHOR" --limit 200 --state open --json number,title,url,repository,state,createdAt,closedAt)
-merged_json=$(gh search prs --author "$AUTHOR" --limit 200 --state closed --merged --json number,title,url,repository,state,createdAt,closedAt)
+# Fetch recent events (last 100), keep contribution-type events only, extract external repos (owner != AUTHOR)
+events=$(gh api "users/${AUTHOR}/events?per_page=100")
+external_repos=$(echo "$events" | jq -r --arg a "$AUTHOR" '
+  [ .[] | select(.type == "PushEvent" or .type == "PullRequestEvent" or .type == "IssuesEvent" or .type == "IssueCommentEvent" or .type == "PullRequestReviewEvent" or .type == "ForkEvent") | .repo.name | select(startswith($a + "/") | not) ] | unique | sort | .[]')
 
-# Count external PRs (owner != AUTHOR); merged additionally respects cutoff year
-open_count=$(echo "$open_json" | jq '[ .[] | select(.repository.nameWithOwner | split("/")[0] != "vianhanif") ] | length')
-merged_count=$(echo "$merged_json" | jq --arg cut "$CUTOFF_DATE" '[ .[] | select((.repository.nameWithOwner | split("/")[0]) != "vianhanif") | select(.closedAt != null and .closedAt >= $cut) ] | length')
-repo_count=$(jq -s --arg cut "$CUTOFF_DATE" '
-  [ .[0][] | select((.repository.nameWithOwner | split("/")[0]) != "vianhanif") | .repository.nameWithOwner ] +
-  [ .[1][] | select((.repository.nameWithOwner | split("/")[0]) != "vianhanif") | select(.closedAt != null and .closedAt >= $cut) | .repository.nameWithOwner ]
-  | unique | length
-' <(echo "$open_json") <(echo "$merged_json"))
+repo_count=$(echo "$external_repos" | grep -c . || true)
 
-updated=$(date -u +%Y-%m-%d)
-body="**Open PRs:** ${open_count}\n\n**Merged PRs:** ${merged_count}\n\n_${repo_count} external repositories · updated ${updated}_"
+if [[ $repo_count -eq 0 ]]; then
+  body='<sub>🗺️ No recent external contributions.</sub>'
+else
+  # Format repo list: owner/repo -> repo (linked)
+  repo_links=$(echo "$external_repos" | while read -r r; do
+    name=${r##*/}
+    echo "[${name}](https://github.com/${r})"
+  done | paste -sd, - | sed 's/,/, /g')
+  body="<sub>🗺️ Active in ${repo_count} external repo(s): ${repo_links}</sub>"
+fi
 
 # Splice into README
 grep -qF "$START_MARKER" "$README_FILE" || { echo "Error: Start marker not found" >&2; exit 1; }
 grep -qF "$END_MARKER" "$README_FILE" || { echo "Error: End marker not found" >&2; exit 1; }
 
 body_file=$(mktemp)
-{
-    printf '%b\n' "$body"
-} > "$body_file"
+printf '%s\n' "$body" > "$body_file"
 
 tmp_readme=$(mktemp)
 awk -v s="$START_MARKER" -v e="$END_MARKER" -v body="$body_file" '
@@ -44,3 +44,4 @@ awk -v s="$START_MARKER" -v e="$END_MARKER" -v body="$body_file" '
 
 mv "$tmp_readme" "$README_FILE"
 rm "$body_file"
+echo "Contribution map updated"
