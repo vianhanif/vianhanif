@@ -19,7 +19,7 @@ events=$(gh api "users/${AUTHOR}/events?per_page=30" \
 context=$(jq -Rs --arg a "$AUTHOR" '
   "Recent GitHub activity for \($a):\n" + . ' <<< "$events")
 
-prompt='You are a GitHub profile summarizer. Write 3-6 markdown bullets summarizing the user'\''s most recent open source work from the activity JSON. Lead with what they are working on, note PRs/repos touched, keep it factual, no greetings. Output ONLY the bullets, one per line, starting with "-".'
+prompt='You are a GitHub profile summarizer. Write a single short sentence (max 25 words) summarizing the user'\''s most recent open source work from the activity JSON. Mention the main repo or PR if notable. Keep it factual, no greetings. Output ONLY the sentence, no bullets, no headers.'
 
 # Call LLM (OpenAI-compatible chat completions)
 auth=()
@@ -43,7 +43,7 @@ grep -qF "$START_MARKER" "$README_FILE" || { echo "Error: Start marker not found
 grep -qF "$END_MARKER" "$README_FILE" || { echo "Error: End marker not found" >&2; exit 1; }
 
 body_file=$(mktemp)
-printf '## 🤖 AI Activity Digest\n\n%s\n' "$content" > "$body_file"
+printf '<sub>🤖 AI digest: %s</sub>\n' "$content" > "$body_file"
 
 tmp_readme=$(mktemp)
 awk -v s="$START_MARKER" -v e="$END_MARKER" -v body="$body_file" '

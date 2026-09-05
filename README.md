@@ -15,14 +15,7 @@ _1 external repositories · updated 2026-09-05_
 _This section auto-updates weekly via GitHub Actions._
 
 <!-- AI-UPDATE:START -->
-## 🤖 AI Activity Digest
-
-- 9router active contributor. Fork vianhanif/9router + upstream PRs to bloodf/9router, decolua/9router.
-- MCP gateway headers roundtrip fix. Branches `fix/mcp-gateway-headers-roundtrip`, `fix/mcp-gateway-headers-bloodf`. PRs opened/merged.
-- Rate limit fix in progress. Branch `fix/opencode-go-503-rate-limit`.
-- Synced upstream `v0.5.65`. Branch `upstream/v0.5.65`, pushed `master`.
-- PRs to decolua/9router opened + issue comments. Ongoing review/discussion.
-- Profile repo vianhanif/vianhanif PRs merged. Docs/README upkeep.
+<sub>🤖 AI digest: Recent work on 9router — MCP gateway headers fix PRs, upstream v0.5.65 sync, ongoing review on decolua/9router.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
