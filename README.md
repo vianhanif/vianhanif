@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Recent work on 9router — MCP gateway headers fix PRs, upstream v0.5.65 sync, ongoing review on decolua/9router.</sub>
+<sub>🤖 AI digest: vianhanif/9router: merged PRs, opened fixes for opencode-go-503-rate-limit and MCP gateway headers roundtrip.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
