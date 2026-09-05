@@ -2,7 +2,7 @@
 set -euo pipefail
 
 AUTHOR="${AUTHOR:-vianhanif}"
-LLM_URL="${LLM_URL:-https://9router.vianhanif/link/v1}"
+LLM_URL="${LLM_URL:-https://9router.vianhanif.link/v1}"
 LLM_MODEL="${LLM_MODEL:-General}"
 README_FILE="README.md"
 START_MARKER='<!-- AI-UPDATE:START -->'
