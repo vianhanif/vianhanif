@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: vianhanif recently merged PRs and added Vitest test infrastructure to 9router while updating their profile README with daily AI features.</sub>
+<sub>🤖 AI digest: Recently active on vianhanif/9router, merging PRs for bugfixes and adding Vitest test infrastructure, while also updating their profile README.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
