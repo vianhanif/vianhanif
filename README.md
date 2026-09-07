@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Recently active on vianhanif/9router, merging PRs for bugfixes and adding Vitest test infrastructure, while also updating their profile README.</sub>
+<sub>🤖 AI digest: Active on 9router (fork of decolua/9router), merging upstream v0.5.69, opening PRs, and pushing deploy repos.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
