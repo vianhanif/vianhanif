@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Active on 9router: merged MCP gateway core, responses-format probe, upstream v0.5.69 sync; deploy repos public.</sub>
+<sub>🤖 AI digest: Pushed 9router responses-format-probe-upstream branch, merged PR, updated vianhanif.github.io.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
