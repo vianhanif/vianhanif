@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Active pushes to `9router` repo, `9router-deploy`, and `hermes-sandbox-deploy`; recent branch `chore/version-sync-v0.5.69`.</sub>
+<sub>🤖 AI digest: Pushing to 9router-deploy; 9router work on responses-format-probe branches, version-sync v0.5.69, headroom-proxy-auth fix.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
