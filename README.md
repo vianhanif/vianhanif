@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Pushing to 9router-deploy; 9router work on responses-format-probe branches, version-sync v0.5.69, headroom-proxy-auth fix.</sub>
+<sub>🤖 AI digest: Vianhanif maintains 9router, recently opening a pull request and pushing updates to sync upstream versions and deployment configurations.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
