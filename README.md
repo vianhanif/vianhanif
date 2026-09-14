@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Vianhanif maintains 9router, recently opening a pull request and pushing updates to sync upstream versions and deployment configurations.</sub>
+<sub>🤖 AI digest: Pushed to opencode-sandbox-env; merged PR in 9router.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
