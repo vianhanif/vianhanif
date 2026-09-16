@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Pushed to 9router-deploy master, latest in a day of 9router and opencode-sandbox-env commits; merged PR in 9router earlier.</sub>
+<sub>🤖 AI digest: Pushing to opencode-sandbox-env; merged PR into 9router, created upstream/v0.5.75-merge branch, deploying via 9router-deploy and 9router-api.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
