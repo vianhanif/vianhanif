@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Actively developing 9router ecosystem with frequent commits to deploy, API, and main repos, plus sandbox environment work on opencode-sandbox-env.</sub>
+<sub>🤖 AI digest: Recent: pushed to vianhanif/agents; previous week merged 9router PR and iterated on opencode-sandbox-env and 9router-deploy.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
