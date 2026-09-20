@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Synced 9router upstream, merged ROUTER-004 tool-name translation PR, added offline GHCR build to 9router-deploy.</sub>
+<sub>🤖 AI digest: Pushing 9router-deploy deploys; merged ROUTER-004 responses tool-name translation into 9router; PR opened upstream to decolua/9router.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
