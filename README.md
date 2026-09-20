@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Recent: pushed to vianhanif/agents; previous week merged 9router PR and iterated on opencode-sandbox-env and 9router-deploy.</sub>
+<sub>🤖 AI digest: Synced 9router upstream, merged ROUTER-004 tool-name translation PR, added offline GHCR build to 9router-deploy.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
