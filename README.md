@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: `vianhanif/9router-deploy` received repeated master pushes; `vianhanif/9router` merged fixes and removed completed remediation branches.</sub>
+<sub>🤖 AI digest: 9router: merged fix/codex-toolcall-json, ROUTER-004 tool-name translation, upstream sync; 9router-deploy preview/offline GHCR build branches; hardening branches deleted.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
