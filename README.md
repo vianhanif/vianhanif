@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Merged PRs to 9router, opened upstream PR to decolua/9router, pushed 9router-deploy master.</sub>
+<sub>🤖 AI digest: Latest push to 9router-deploy master; merged PRs and cleaned up branches in 9router.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
