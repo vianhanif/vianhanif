@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Latest push to 9router-deploy master; merged PRs and cleaned up branches in 9router.</sub>
+<sub>🤖 AI digest: Merged PR `fix/codex-toolcall-json` into 9router master; pushed upstream sync, ROUTER-004 tool-name translation; 9router-deploy master updated, old branches deleted.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
