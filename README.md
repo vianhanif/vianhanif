@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: 9router: merged Codex tool-call JSON fix, tool-name translation; deploy repo pushed master, offline GHCR build PR open.</sub>
+<sub>🤖 AI digest: Merged codex-toolcall-json fix and ROUTER-004 translation PRs in vianhanif/9router.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
