@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Merged codex-toolcall-json fix and ROUTER-004 translation PRs in vianhanif/9router.</sub>
+<sub>🤖 AI digest: Merged v0.5.95 version-sync PRs into 9router-api and 9router, deleting merge branches after upstream sync.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
