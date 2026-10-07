@@ -7,7 +7,7 @@ Welcome to my GitHub profile — below is a living map of my open source contrib
 <!-- OSS-MAP:END -->
 
 <!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Merged version sync v0.5.95 PRs in 9router-api and 9router, cleaned feature branches.</sub>
+<sub>🤖 AI digest: Opened PR in vianhanif/9router; synced v0.5.95 upstream merges across 9router-api and 9router-deploy.</sub>
 <!-- AI-UPDATE:END -->
 
 ## ✨ Highlights
