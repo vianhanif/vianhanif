@@ -4,14 +4,6 @@
 
 ---
 
-## 🗺️ Open Source Map
-
-<!-- OSS-MAP:START -->
-<sub>🗺️ Active in 1 external repo(s): [9router](https://github.com/decolua/9router)</sub>
-<!-- OSS-MAP:END -->
-
----
-
 ## About
 
 Backend engineer and Tech Lead with 6+ years in insurtech, building Go & Python microservices on AWS/GCP. I lead a squad owning production reliability and AI-assisted developer tooling. Passionate about distributed systems, infrastructure, and developer experience.
