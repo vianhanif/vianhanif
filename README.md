@@ -4,12 +4,6 @@
 
 ---
 
-## 🤖 AI Digest
-
-<!-- AI-UPDATE:START -->
-<sub>🤖 AI digest: Opened PR in vianhanif/9router; synced v0.5.95 upstream merges across 9router-api and 9router-deploy.</sub>
-<!-- AI-UPDATE:END -->
-
 ## 🗺️ Open Source Map
 
 <!-- OSS-MAP:START -->
